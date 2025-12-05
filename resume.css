@@ -367,6 +367,43 @@ body {
     cursor: not-allowed;
 }
 
+.print-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 180px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.print-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .print-btn {
+        bottom: 80px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 12px;
+    }
+}
+
 .download-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
@@ -384,7 +421,8 @@ body {
         background: white;
     }
     
-    .download-btn {
+    .download-btn,
+    .print-btn {
         display: none;
     }
     
@@ -432,9 +470,14 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
     .resume-body {
         grid-template-columns: 1fr;
         gap: 20px;
+        padding: 20px;
     }
     
     .left-column {
@@ -449,10 +492,20 @@ body {
     .resume-header {
         flex-direction: column;
         text-align: center;
+        padding: 20px;
     }
     
     .contact-info {
         justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .download-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 12px;
     }
 }
 

@@ -273,6 +273,7 @@
 
     <!-- PDF Download Button -->
     <button id="downloadPdf" class="download-btn">📥 Download PDF</button>
+    <button id="printResume" class="print-btn">🖨️ Print</button>
 
     <script>
         document.getElementById('downloadPdf').addEventListener('click', function() {
@@ -333,6 +334,11 @@
                         button.innerHTML = originalText;
                     }, 1000);
                 });
+        });
+        
+        // Print functionality
+        document.getElementById('printResume').addEventListener('click', function() {
+            window.print();
         });
     </script>
 </body>
