@@ -276,16 +276,63 @@
 
     <script>
         document.getElementById('downloadPdf').addEventListener('click', function() {
+            const button = this;
+            const originalText = button.innerHTML;
+            button.innerHTML = '⏳ Generating PDF...';
+            button.disabled = true;
+            
             const element = document.getElementById('resume');
+            
+            // Detect mobile device
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
             const opt = {
-                margin: 0,
+                margin: [0.2, 0.2, 0.2, 0.2],
                 filename: 'Henry_Ugochukwu_Resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                image: { 
+                    type: 'jpeg', 
+                    quality: 0.98 
+                },
+                html2canvas: { 
+                    scale: isMobile ? 1.5 : 2,
+                    useCORS: true,
+                    logging: false,
+                    letterRendering: true,
+                    width: element.scrollWidth,
+                    height: element.scrollHeight,
+                    windowWidth: element.scrollWidth,
+                    windowHeight: element.scrollHeight
+                },
+                jsPDF: { 
+                    unit: 'in', 
+                    format: 'letter', 
+                    orientation: 'portrait',
+                    compress: true
+                },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
             };
             
-            html2pdf().set(opt).from(element).save();
+            html2pdf()
+                .set(opt)
+                .from(element)
+                .save()
+                .then(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                })
+                .catch((error) => {
+                    console.error('PDF generation error:', error);
+                    button.innerHTML = '❌ Error - Try Again';
+                    button.disabled = false;
+                    
+                    // Fallback: open print dialog
+                    setTimeout(() => {
+                        if (confirm('PDF generation failed. Would you like to use the print option instead?')) {
+                            window.print();
+                        }
+                        button.innerHTML = originalText;
+                    }, 1000);
+                });
         });
     </script>
 </body>
