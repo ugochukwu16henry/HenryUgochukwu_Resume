@@ -33,6 +33,12 @@ body {
     overflow: hidden;
 }
 
+.resume-container.pdf-export {
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+
 .resume-header {
     background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 55%, var(--accent) 100%);
     color: #ffffff;
@@ -336,7 +342,11 @@ a.contact-item:hover {
 
     .section,
     .experience-item,
-    .education-item {
+    .education-item,
+    .project-links li,
+    .group-title,
+    .resume-header {
         break-inside: avoid;
+        page-break-inside: avoid;
     }
 }

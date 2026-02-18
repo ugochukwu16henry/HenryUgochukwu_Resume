@@ -157,10 +157,11 @@
             button.disabled = true;
 
             const element = document.getElementById('resume');
+            element.classList.add('pdf-export');
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
             const options = {
-                margin: [0.2, 0.2, 0.2, 0.2],
+                margin: [0.28, 0.24, 0.28, 0.24],
                 filename: 'Henry_Ugochukwu_Resume.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: {
@@ -168,6 +169,7 @@
                     useCORS: true,
                     logging: false,
                     letterRendering: true,
+                    scrollY: 0,
                     width: element.scrollWidth,
                     height: element.scrollHeight,
                     windowWidth: element.scrollWidth,
@@ -179,7 +181,10 @@
                     orientation: 'portrait',
                     compress: true
                 },
-                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+                pagebreak: {
+                    mode: ['css', 'legacy'],
+                    avoid: ['.section', '.experience-item', '.education-item', '.project-links li']
+                }
             };
 
             html2pdf()
@@ -187,11 +192,13 @@
                 .from(element)
                 .save()
                 .then(() => {
+                    element.classList.remove('pdf-export');
                     button.innerHTML = originalText;
                     button.disabled = false;
                 })
                 .catch((error) => {
                     console.error('PDF generation error:', error);
+                    element.classList.remove('pdf-export');
                     button.innerHTML = 'Try Again';
                     button.disabled = false;
                     setTimeout(() => {
