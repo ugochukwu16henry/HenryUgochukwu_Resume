@@ -1,6 +1,6 @@
-# Henry M. Ugochukwu - Professional Resume
+# Henry M. Ugochukwu - Full Stack Developer Resume
 
-A professional one-page resume with PDF download functionality.
+A modern, professional digital resume with print and PDF export functionality.
 
 ## Files Structure
 
@@ -39,9 +39,11 @@ Open `index.html` in your web browser to view the resume locally.
 
 ## Features
 
-- Professional one-page resume design
-- Blue, white, and red color scheme
-- Responsive layout
-- PDF download functionality
-- Profile picture integration
-
+- Modern full stack developer resume layout
+- Professional, eye-catching visual design
+- Dedicated project links section:
+  - Full Stack projects
+  - Website Development projects
+- Responsive design for desktop and mobile
+- Print and PDF download support
+- Profile picture and clickable contact links
