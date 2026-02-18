@@ -157,6 +157,10 @@
             button.disabled = true;
 
             const element = document.getElementById('resume');
+            const previousMaxWidth = element.style.maxWidth;
+            const previousWidth = element.style.width;
+            element.style.maxWidth = '100%';
+            element.style.width = '100%';
             element.classList.add('pdf-export');
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
@@ -165,7 +169,7 @@
                 filename: 'Henry_Ugochukwu_Resume.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: {
-                    scale: isMobile ? 1.5 : 2,
+                    scale: isMobile ? 1.6 : 2.2,
                     useCORS: true,
                     logging: false,
                     letterRendering: true,
@@ -193,12 +197,16 @@
                 .save()
                 .then(() => {
                     element.classList.remove('pdf-export');
+                    element.style.maxWidth = previousMaxWidth;
+                    element.style.width = previousWidth;
                     button.innerHTML = originalText;
                     button.disabled = false;
                 })
                 .catch((error) => {
                     console.error('PDF generation error:', error);
                     element.classList.remove('pdf-export');
+                    element.style.maxWidth = previousMaxWidth;
+                    element.style.width = previousWidth;
                     button.innerHTML = 'Try Again';
                     button.disabled = false;
                     setTimeout(() => {

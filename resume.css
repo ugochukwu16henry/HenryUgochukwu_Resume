@@ -37,6 +37,12 @@ body {
     border-radius: 0;
     box-shadow: none;
     overflow: visible;
+    max-width: 100%;
+    width: 100%;
+}
+
+.pdf-export ~ .action-btn {
+    display: none !important;
 }
 
 .resume-header {
