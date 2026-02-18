@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry M. Ugochukwu - Resume PDF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.35in;
+        }
+
+        :root {
+            --text: #0f172a;
+            --muted: #475569;
+            --line: #dbe3ef;
+            --brand: #1d4ed8;
+            --brand-dark: #1e3a8a;
+            --accent: #0ea5e9;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            line-height: 1.45;
+            font-size: 9.3pt;
+        }
+
+        .resume {
+            width: 100%;
+            border: 1px solid var(--line);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 55%, var(--accent) 100%);
+            color: #ffffff;
+            padding: 18px 20px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: center;
+            page-break-inside: avoid;
+        }
+
+        .profile-img {
+            width: 92px;
+            height: 92px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .name {
+            font-size: 21pt;
+            font-weight: 800;
+            line-height: 1.05;
+        }
+
+        .title {
+            margin-top: 5px;
+            font-size: 11pt;
+            font-weight: 600;
+        }
+
+        .tagline {
+            margin-top: 6px;
+            font-size: 8.7pt;
+            opacity: 0.95;
+            max-width: 96%;
+        }
+
+        .contact {
+            margin-top: 9px;
+            font-size: 8.2pt;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact a,
+        .contact span {
+            color: #ffffff;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            padding: 2px 8px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1.7fr 1fr;
+            gap: 15px;
+            padding: 16px 18px 18px;
+        }
+
+        .main {
+            border-right: 1px solid var(--line);
+            padding-right: 12px;
+        }
+
+        .section {
+            margin-bottom: 12px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            color: var(--brand-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            font-size: 9.2pt;
+            margin-bottom: 6px;
+            border-bottom: 1.5px solid #c7d7fb;
+            padding-bottom: 3px;
+            font-weight: 700;
+        }
+
+        .summary {
+            color: #334155;
+            font-size: 8.6pt;
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .item {
+            margin-bottom: 8px;
+            page-break-inside: avoid;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 3px;
+        }
+
+        .item-title {
+            font-size: 9pt;
+            font-weight: 700;
+        }
+
+        .item-date {
+            color: #64748b;
+            font-size: 8pt;
+            white-space: nowrap;
+        }
+
+        .item-subtitle {
+            font-size: 8.4pt;
+            color: #334155;
+            margin-bottom: 2px;
+        }
+
+        .item-meta {
+            font-size: 8pt;
+            color: #64748b;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 11px;
+            margin-bottom: 4px;
+            color: #334155;
+            font-size: 8.1pt;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--brand);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .chip {
+            font-size: 7.8pt;
+            padding: 2px 7px;
+            border-radius: 999px;
+            border: 1px solid #d2dfff;
+            background: #e8efff;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .group-title {
+            margin-top: 6px;
+            margin-bottom: 5px;
+            font-size: 8.2pt;
+            text-transform: uppercase;
+            letter-spacing: 0.55px;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        .projects li {
+            font-size: 7.6pt;
+            margin-bottom: 4px;
+        }
+
+        .projects a {
+            color: var(--brand-dark);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .projects a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            .resume {
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <header class="header">
+            <img class="profile-img" src="images/Henrypicture.jpg" alt="Henry M. Ugochukwu">
+            <div>
+                <h1 class="name">Henry M. Ugochukwu</h1>
+                <p class="title">Full Stack Developer</p>
+                <p class="tagline">Building scalable web applications with clean UX, robust APIs, and production-ready architecture.</p>
+                <div class="contact">
+                    <a href="mailto:ugochukwuhenry16@gmail.com">ugochukwuhenry16@gmail.com</a>
+                    <span>+2348106675568</span>
+                    <span>Uyo, Akwa Ibom, Nigeria</span>
+                    <a href="https://github.com/ugochukwu16henry">GitHub</a>
+                    <a href="https://ugochukwu16henry.github.io">Portfolio</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="main">
+                <section class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p class="summary">Results-driven Full Stack Developer with strong experience delivering responsive front-end interfaces, backend services, API integrations, and database-powered applications. Skilled at turning requirements into reliable, user-focused digital products that are easy to maintain and scale.</p>
+                    <p class="summary">Brings a human-centered mindset from Marriage & Family Studies, combining technical execution with empathy-driven product thinking to ship practical solutions for real users.</p>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">Web & Software Developer</h3>
+                            <span class="item-date">2021 - Present</span>
+                        </div>
+                        <ul>
+                            <li>Developed responsive web applications with modern frontend technologies and component-based architecture.</li>
+                            <li>Integrated backend endpoints and third-party APIs to deliver dynamic, data-driven features.</li>
+                            <li>Improved performance, accessibility, and cross-device usability through structured testing and iteration.</li>
+                            <li>Collaborated with project teams to translate goals into clean, maintainable implementation plans.</li>
+                        </ul>
+                    </article>
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">Digital Marketing Strategist</h3>
+                            <span class="item-date">2020 - 2021</span>
+                        </div>
+                        <ul>
+                            <li>Managed paid campaigns across Meta, Google, and LinkedIn with measurable engagement growth.</li>
+                            <li>Used analytics and user behavior insights to improve targeting and campaign conversion quality.</li>
+                        </ul>
+                    </article>
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">Research & Data Analyst</h3>
+                            <span class="item-date">2019 - 2020</span>
+                        </div>
+                        <ul>
+                            <li>Conducted usability and engagement analysis to support product and communication improvements.</li>
+                            <li>Presented practical insights that helped shape technical and educational solution design.</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">B.Sc. Software Engineering & Development</h3>
+                            <span class="item-date">2023 - 2026</span>
+                        </div>
+                        <p class="item-subtitle">Brigham Young University-Idaho</p>
+                        <p class="item-meta">GPA: 3.8 / 4.0</p>
+                    </article>
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">B.Sc. Marriage & Family Studies</h3>
+                            <span class="item-date">2022 - Aug 2025</span>
+                        </div>
+                        <p class="item-subtitle">Brigham Young University-Idaho</p>
+                    </article>
+                </section>
+            </section>
+
+            <aside>
+                <section class="section">
+                    <h2 class="section-title">Core Skills</h2>
+                    <div class="chips">
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">HTML5</span>
+                        <span class="chip">CSS3</span>
+                        <span class="chip">Responsive UI</span>
+                        <span class="chip">Node.js</span>
+                        <span class="chip">REST APIs</span>
+                        <span class="chip">Database Design</span>
+                        <span class="chip">Debugging</span>
+                        <span class="chip">Git & GitHub</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Projects Links</h2>
+                    <h3 class="group-title">Full Stack</h3>
+                    <ul class="projects">
+                        <li><a href="https://team05-handcrafted-haven-project.vercel.app/">team05-handcrafted-haven-project.vercel.app</a></li>
+                        <li><a href="https://riseflowhubv10-production.up.railway.app/">riseflowhubv10-production.up.railway.app</a></li>
+                        <li><a href="https://sleepout-team10.netlify.app/">sleepout-team10.netlify.app</a></li>
+                        <li><a href="https://ugochukwu16henry.github.io/wdd231/final/menu.html">wdd231/final/menu.html</a></li>
+                        <li><a href="https://ugochukwu16henry.github.io/WDD330_finalproject/">WDD330_finalproject</a></li>
+                    </ul>
+
+                    <h3 class="group-title">Website Development</h3>
+                    <ul class="projects">
+                        <li><a href="https://ugochukwu16henry.github.io/foundationprototype/index.html">foundationprototype/index.html</a></li>
+                        <li><a href="https://ugochukwu16henry.github.io/business/industries.html">business/industries.html</a></li>
+                        <li><a href="https://ugochukwu16henry.github.io/wdd131/">wdd131</a></li>
+                        <li><a href="https://ugochukwu16henry.github.io/wdd131/project.html">wdd131/project.html</a></li>
+                        <li><a href="http://ugochukwu16henry.github.io/wdd131/filtered-temples.html">wdd131/filtered-temples.html</a></li>
+                        <li><a href="https://ugochukwu16henry.github.io/e-commerce/#home">e-commerce/#home</a></li>
+                        <li><a href="https://ugochukwu16henry.github.io/WDD330_finalproject/">WDD330_finalproject</a></li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <ul>
+                        <li>English (Fluent)</li>
+                        <li>Igbo (Native)</li>
+                    </ul>
+                </section>
+            </aside>
+        </main>
+    </div>
+</body>
+</html>
